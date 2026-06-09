@@ -1,0 +1,2 @@
+# Regenerable artifact — rebuild with ./build.sh
+*.db
