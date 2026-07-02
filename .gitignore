@@ -1,2 +1,3 @@
-# Regenerable artifact — rebuild with ./build.sh
+# Regenerable artifacts — rebuild with ./build.sh and the analysis scripts
 *.db
+analysis/*.rds
