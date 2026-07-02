@@ -40,8 +40,10 @@ d <- d %>%
          ymid  = (ymin + ymax) / 2,
          ang   = 2 * pi * ymid,                            # 0 = 12 o'clock, clockwise
          side  = ifelse(ang <= pi, 1, -1),                 # right vs left half
-         lab   = ifelse(uses == 1, sprintf("%s  1 episode", name),
-                        sprintf("%s  %.1f%%", name, 100 * pct)))
+         # big slices carry their % inside, so the outside label is just the name
+         lab   = case_when(uses == 1  ~ sprintf("%s  1 episode", name),
+                           pct >= 0.03 ~ as.character(name),
+                           TRUE        ~ sprintf("%s  %.1f%%", name, 100 * pct)))
 
 BG  <- "#DDEBEC"; INK <- "#333333"
 SUB <- "#474746"; CAP <- "#888888"; LEAD <- "#999999"
