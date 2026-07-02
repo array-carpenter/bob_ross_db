@@ -5,23 +5,18 @@
 
 suppressPackageStartupMessages({
   library(DBI); library(RSQLite)
-  library(dplyr); library(ggplot2)
-  library(showtext); library(sysfonts); library(ragg); library(ggrepel)
+  library(dplyr); library(ggplot2); library(ragg)
 })
 
 # run from the repo root: Rscript viz/color_pie.R
+source("viz/_spade_brand.R")
+spade_fonts()
+
 here   <- "."
 db     <- file.path(here, "bob_ross.db")
 outdir <- file.path(here, "viz"); dir.create(outdir, showWarnings = FALSE)
 
 title_family <- "newsreader"; body_family <- "helvetica"
-font_add(body_family, "/System/Library/Fonts/Helvetica.ttc",
-         bold = "/System/Library/Fonts/Helvetica.ttc")
-tryCatch(font_add_google("Newsreader", title_family),
-         error = function(e) font_add(title_family,
-           "/System/Library/Fonts/Supplemental/Times New Roman.ttf",
-           bold = "/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf"))
-showtext_auto(); showtext_opts(dpi = 300)
 
 con <- dbConnect(SQLite(), db)
 d <- dbGetQuery(con, "
@@ -45,8 +40,8 @@ d <- d %>%
                            pct >= 0.03 ~ as.character(name),
                            TRUE        ~ sprintf("%s  %.1f%%", name, 100 * pct)))
 
-BG  <- "#DDEBEC"; INK <- "#333333"
-SUB <- "#474746"; CAP <- "#888888"; LEAD <- "#999999"
+BG  <- SPADE$BG; INK <- SPADE$INK
+SUB <- SPADE$SUB; CAP <- SPADE$CAP; LEAD <- "#999999"
 
 # percent text inside slices: dark on the light paints, white elsewhere
 d$ink <- ifelse(d$name %in% c("Titanium White", "Cadmium Yellow", "Yellow Ochre",
@@ -64,10 +59,20 @@ wedge <- function(i) {
 }
 polys <- do.call(rbind, lapply(seq_len(nrow(d)), wedge))
 
-# anchor each label on its slice's outer edge; repel handles collisions
+# hand-placed radial anchors: fixed radius, hjust by side, no repel jitter
+r_name <- 1.13
 d <- d %>% mutate(
-  lx0 = r_out * sin(ang), ly0 = r_out * cos(ang),
-  nx  = 0.45 * sin(ang),  ny = 0.45 * cos(ang))   # nudge outward, away from center
+  lx = r_name * sin(ang),
+  ly = r_name * cos(ang) * ifelse(cos(ang) < -0.9, 1.05, 1),  # extra room at 6 o'clock
+  hj = case_when(sin(ang) >  0.25 ~ 0,
+                 sin(ang) < -0.25 ~ 1,
+                 TRUE             ~ 0.5))
+
+# the three sliver slices at 12 o'clock get a fanned stack with leader lines
+tiny <- d %>% filter(pct < 0.03) %>% arrange(ang) %>%
+  mutate(lx = c(-0.98, -0.60, -0.20), ly = c(1.22, 1.32, 1.42), hj = 1,
+         ex0 = 1.02 * sin(ang), ey0 = 1.02 * cos(ang))   # leader start on the rim
+d <- d %>% rows_update(tiny %>% select(name, lx, ly, hj), by = "name")
 
 p <- ggplot() +
   geom_polygon(data = polys, aes(x, y, group = slice, fill = hex, color = edge),
@@ -79,14 +84,12 @@ p <- ggplot() +
                 label = sprintf("%.1f%%", 100 * pct), color = ink),
             family = body_family, fontface = "bold", size = 4.6) +
   scale_color_identity() +
-  # outside name labels with leader lines; repel keeps the small slices legible
-  geom_text_repel(data = d, aes(x = lx0, y = ly0, label = lab),
-                  family = body_family, size = 4.5, color = INK,
-                  nudge_x = d$nx, nudge_y = d$ny, force = 1.2, max.overlaps = Inf,
-                  segment.color = LEAD, segment.size = 0.3,
-                  min.segment.length = 0, point.padding = 0, box.padding = 0.18,
-                  seed = 7) +
-  coord_fixed(xlim = c(-1.9, 1.9), ylim = c(-1.3, 1.35), clip = "off") +
+  # leader lines out to the sliver labels
+  geom_segment(data = tiny, aes(x = ex0, y = ey0, xend = lx + 0.03, yend = ly),
+               color = LEAD, linewidth = 0.3) +
+  geom_text(data = d, aes(x = lx, y = ly, label = lab, hjust = hj),
+            family = body_family, size = 4.5, color = INK) +
+  coord_fixed(xlim = c(-1.9, 1.9), ylim = c(-1.32, 1.5), clip = "off") +
   labs(
     title = "EVERY COLOR BOB ROSS USED",
     subtitle = "Share of all 4,108 paint applications across 403 episodes of The Joy of Painting.\nEach slice is the paint's own oil color.",
@@ -108,4 +111,5 @@ p <- ggplot() +
 
 out <- file.path(outdir, "color_pie.png")
 ggsave(out, p, width = 11, height = 10, dpi = 300, bg = BG, device = ragg::agg_png)
+spade_finish(out, rule_y_px = 505, logo_frac = 0.06, logo_y_px = 42)
 cat("wrote", out, "\n")
