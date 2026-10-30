@@ -1,7 +1,8 @@
 # bob_ross_db
 
 A SQLite database of every paint color Bob Ross used in each episode of
-*The Joy of Painting*, with hex codes.
+*The Joy of Painting*, with hex codes, plus what is in each painting (trees,
+clouds, mountains, cabins) from FiveThirtyEight's subject tags.
 
 ## Layout
 
@@ -10,6 +11,8 @@ A SQLite database of every paint color Bob Ross used in each episode of
 | `schema.sql` | Tables, indexes, and the `v_episode_palette` view |
 | `colors.sql` | Canonical paint palette + hex codes |
 | `data/season_NN.sql` | Episodes and color usage for one season |
+| `data/fivethirtyeight/elements-by-episode.csv` | FiveThirtyEight's subject tags, unchanged ([source](https://github.com/fivethirtyeight/data/tree/master/bob-ross)) |
+| `elements.sql` | Loads that CSV into `elements` / `episode_elements` |
 | `build.sh` | Rebuilds `bob_ross.db` from the SQL files |
 | `analysis/` | Palette clustering, subject/palette association, snow-scene model |
 | `viz/` | Chart scripts (R) and rendered PNGs |
@@ -26,6 +29,10 @@ The `.db` is gitignored — rebuild it locally:
 - **episodes** — `id`, `season`, `episode`, `title`, `youtube_url` (unique on `season, episode`)
 - **episode_colors** — junction of `episode_id` ↔ `color_id`
 - **v_episode_palette** — flattened view: season, episode, title, color, hex
+- **elements** — `id`, `name`: the 67 FiveThirtyEight tags, lowercased (`tree`,
+  `clouds`, `cabin`, frame types, guest painters, ...)
+- **episode_elements** — junction of `episode_id` ↔ `element_id`
+- **v_episode_elements** — flattened view: season, episode, title, element
 
 ## Example queries
 
@@ -41,6 +48,14 @@ GROUP BY c.id ORDER BY episodes DESC;
 -- Episodes using the fewest colors
 SELECT season, episode, title, COUNT(*) AS n_colors
 FROM v_episode_palette GROUP BY season, episode ORDER BY n_colors;
+
+-- Share of mountain paintings that use each paint
+SELECT p.color, ROUND(100.0 * COUNT(*) / (
+         SELECT COUNT(*) FROM v_episode_elements WHERE element = 'mountain'), 1) AS pct
+FROM v_episode_palette p
+JOIN v_episode_elements x USING (season, episode)
+WHERE x.element = 'mountain'
+GROUP BY p.color ORDER BY pct DESC;
 ```
 
 ## Analysis
@@ -78,3 +93,19 @@ link colors by name), add any new colors to `colors.sql`, and re-run `./build.sh
 
 Hex codes follow the widely-used canonical Bob Ross palette
 ([Two Inch Brush](https://www.twoinchbrush.com/) / FiveThirtyEight reference set).
+
+## Subject source
+
+The subject tags come from Walt Hickey's
+[A Statistical Analysis of the Work of Bob Ross](https://fivethirtyeight.com/features/a-statistical-analysis-of-the-work-of-bob-ross/)
+(FiveThirtyEight, 2014). The CSV is copied as-is from
+[fivethirtyeight/data](https://github.com/fivethirtyeight/data/tree/master/bob-ross)
+and used under [CC BY 4.0](https://github.com/fivethirtyeight/data/blob/master/LICENSE).
+Their data has what Bob painted but not the paints he used. With both in one
+database you can ask which paints go with which subjects.
+
+Episodes join on season and episode number (all 403 match). About 30 titles are
+spelled differently in the two sources ("Snowfall" vs "Snow Fall"); `episodes.title`
+keeps this repo's spelling. "Any tree" (`tree`, `trees`, `conifer`, `deciduous`,
+`palm_trees`) covers 91.6% of episodes, the "91% with trees" figure; `clouds` is
+44.4% and `mountain` 39.7%.
