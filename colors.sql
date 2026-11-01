@@ -12,10 +12,10 @@ INSERT OR IGNORE INTO colors (name, hex) VALUES
     ('Liquid Black',     '#000000'),
     ('Liquid Clear',     '#FFFFFF'),
     ('Midnight Black',   '#000000'),
-    ('Phthalo Blue',     '#0C0040'),
+    ('Phthalo Blue',     '#000F89'),
     ('Phthalo Green',    '#102E3C'),
     ('Prussian Blue',    '#021E44'),
-    ('Sap Green',        '#0A3410'),
+    ('Sap Green',        '#507D2A'),
     ('Titanium White',   '#FFFFFF'),
     ('Van Dyke Brown',   '#221B15'),
     ('Yellow Ochre',     '#C79B00');

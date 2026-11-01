@@ -92,7 +92,12 @@ link colors by name), add any new colors to `colors.sql`, and re-run `./build.sh
 ## Color source
 
 Hex codes follow the widely-used canonical Bob Ross palette
-([Two Inch Brush](https://www.twoinchbrush.com/) / FiveThirtyEight reference set).
+([Two Inch Brush](https://www.twoinchbrush.com/) / FiveThirtyEight reference set),
+with two exceptions. That set lists Phthalo Blue as `#0C0040` and Sap Green as
+`#0A3410`, which turn violet and kelly green once mixed with white. Both now use
+the pigment values from Wikipedia: Phthalo Blue `#000F89`
+([copper phthalocyanine](https://en.wikipedia.org/wiki/Copper_phthalocyanine))
+and Sap Green `#507D2A` ([sap green](https://en.wikipedia.org/wiki/Shades_of_green#Sap_green)).
 
 ## Subject source
 

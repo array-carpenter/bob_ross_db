@@ -66,7 +66,7 @@ main <- ggplot() +
 # ============================ paint-key band ============================
 warm_paints <- tibble::tribble(
   ~name,            ~hex,
-  "Sap Green",      "#0A3410",
+  "Sap Green",      "#507D2A",
   "Phthalo Green",  "#102E3C",
   "Cadmium Yellow", "#FFEC00",
   "Indian Yellow",  "#FFB800",
