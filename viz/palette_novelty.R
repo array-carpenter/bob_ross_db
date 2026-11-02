@@ -1,7 +1,6 @@
-# The Happy Little Rut: palette novelty across all 403 episodes.
+# Palette novelty across all 403 episodes.
 # One dot per show: Jaccard distance to the closest palette Bob Ross had already
-# used (0 = exact repeat). Rolling season-length mean shows the settling-in.
-# Ray Carpenter spade brand: mint canvas, ALL-CAPS Newsreader title, Helvetica body.
+# used (0 = exact repeat). The line is a rolling season-length mean.
 
 suppressPackageStartupMessages({
   library(dplyr); library(ggplot2); library(ggtext); library(ragg)
@@ -26,19 +25,19 @@ lady  <- ep %>% filter(title == "Contemplative Lady")
 posy  <- ep %>% filter(title == "Pot O' Posies")
 
 p <- ggplot() +
-  # exact repeats pile up along the floor: that pile IS the rut
+  # exact repeats sit on the floor
   geom_point(data = zero, aes(idx, nov), color = "#93abad", size = 1.3, alpha = 0.6) +
   geom_point(data = fresh, aes(idx, nov), color = SPADE$NAVY, size = 1.9, alpha = 0.55) +
   geom_line(data = ep %>% filter(!is.na(roll)), aes(idx, roll),
             color = SPADE$NAVY, linewidth = 1.4) +
-  # season 7: Dark Sienna replaces Burnt Umber, forcing a year of new loadouts
+  # season 7: Dark Sienna replaces Burnt Umber
   annotate("text", x = 116, y = 0.40, hjust = 0, family = "helvetica", size = 4.4,
            color = SPADE$INK, lineheight = 1.15,
            label = "Season 7: Dark Sienna replaces Burnt Umber;\n11 of 13 palettes are new") +
   annotate("curve", x = 113, y = 0.385, xend = 86, yend = 0.26, curvature = 0.25,
            color = SPADE$SUB, linewidth = 0.45,
            arrow = arrow(length = unit(0.16, "cm"), type = "closed")) +
-  # the two loudest late-career flings
+  # two outliers
   annotate("point", x = lady$idx, y = lady$nov, shape = 21, size = 4.4,
            fill = NA, color = ACCENT, stroke = 1.1) +
   annotate("text", x = lady$idx + 10, y = lady$nov - 0.055, hjust = 0,

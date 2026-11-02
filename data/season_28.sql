@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 28 (1996)
+-- The Joy of Painting: Season 28 (1996)
 
 INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (28,  1, "Fisherman's Trail",       'https://www.youtube.com/embed/VnZEpic2UzU'),
@@ -15,7 +15,7 @@ INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (28, 12, 'Mountain Serenity',       'https://www.youtube.com/embed/wc_YVijYjT4'),
     (28, 13, 'Home Before Nightfall',   'https://www.youtube.com/embed/22SiIDvyJeM');
 
--- Eps 1, 3, 6, 8 — identical 12-color set.
+-- Eps 1, 3, 6, 8: identical 12-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 28 AND e.episode IN (1, 3, 6, 8)
@@ -23,7 +23,7 @@ WHERE e.season = 28 AND e.episode IN (1, 3, 6, 8)
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Eps 5 The Magic of Fall & 7 The Old Weathered Barn — identical 9-color set.
+-- Eps 5 The Magic of Fall & 7 The Old Weathered Barn: identical 9-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 28 AND e.episode IN (5, 7)
@@ -31,7 +31,7 @@ WHERE e.season = 28 AND e.episode IN (5, 7)
                  'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White',
                  'Yellow Ochre');
 
--- Ep 2 A Warm Winter — 9 colors (Prussian Blue, no Phthalo Green).
+-- Ep 2 A Warm Winter: 9 colors (Prussian Blue, no Phthalo Green).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 28 AND e.episode = 2
@@ -39,20 +39,20 @@ WHERE e.season = 28 AND e.episode = 2
                  'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White',
                  'Yellow Ochre');
 
--- Ep 4 Golden Rays of Sunshine — 6 colors.
+-- Ep 4 Golden Rays of Sunshine: 6 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 28 AND e.episode = 4
   AND c.name IN ('Alizarin Crimson', 'Indian Yellow', 'Phthalo Blue', 'Prussian Blue',
                  'Sap Green', 'Titanium White');
 
--- Ep 9 Winter's Grace — 4 colors.
+-- Ep 9 Winter's Grace: 4 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 28 AND e.episode = 9
   AND c.name IN ('Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White');
 
--- Ep 10 Splendor of Autumn — 11 colors (no Prussian Blue).
+-- Ep 10 Splendor of Autumn: 11 colors (no Prussian Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 28 AND e.episode = 10
@@ -60,7 +60,7 @@ WHERE e.season = 28 AND e.episode = 10
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 11 Tranquil Seas — 10 colors (Phthalo Green; no Dark Sienna, no Van Dyke Brown, no Prussian Blue).
+-- Ep 11 Tranquil Seas: 10 colors (Phthalo Green; no Dark Sienna, no Van Dyke Brown, no Prussian Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 28 AND e.episode = 11
@@ -68,7 +68,7 @@ WHERE e.season = 28 AND e.episode = 11
                  'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Sap Green',
                  'Titanium White', 'Yellow Ochre');
 
--- Ep 12 Mountain Serenity — full 13-color palette.
+-- Ep 12 Mountain Serenity: full 13-color palette.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 28 AND e.episode = 12
@@ -77,7 +77,7 @@ WHERE e.season = 28 AND e.episode = 12
                  'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown',
                  'Yellow Ochre');
 
--- Ep 13 Home Before Nightfall — 8 colors.
+-- Ep 13 Home Before Nightfall: 8 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 28 AND e.episode = 13

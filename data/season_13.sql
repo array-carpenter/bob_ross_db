@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 13 (1989)
+-- The Joy of Painting: Season 13 (1989)
 -- NOTE: source listed both Oval Essence and Lost Lake as "Episode 12"; Lost Lake
 -- is the season finale, recorded here as Episode 13.
 
@@ -17,7 +17,7 @@ INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (13, 12, 'Oval Essence',        'https://www.youtube.com/embed/q7WXF_BSEXw'),
     (13, 13, 'Lost Lake',          'https://www.youtube.com/embed/9-ATP8xyDM0');
 
--- Eps 1, 10, 13 — identical 12-color set.
+-- Eps 1, 10, 13: identical 12-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 13 AND e.episode IN (1, 10, 13)
@@ -25,14 +25,14 @@ WHERE e.season = 13 AND e.episode IN (1, 10, 13)
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 2 Frozen Solitude — 5 colors.
+-- Ep 2 Frozen Solitude: 5 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 13 AND e.episode = 2
   AND c.name IN ('Dark Sienna', 'Midnight Black', 'Prussian Blue', 'Titanium White',
                  'Van Dyke Brown');
 
--- Eps 3 Meadow Brook & 7 Peaceful Haven — full 13-color palette.
+-- Eps 3 Meadow Brook & 7 Peaceful Haven: full 13-color palette.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 13 AND e.episode IN (3, 7)
@@ -41,7 +41,7 @@ WHERE e.season = 13 AND e.episode IN (3, 7)
                  'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown',
                  'Yellow Ochre');
 
--- Eps 4 Evening at Sunset & 5 Mountain View — identical 11-color set.
+-- Eps 4 Evening at Sunset & 5 Mountain View: identical 11-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 13 AND e.episode IN (4, 5)
@@ -49,7 +49,7 @@ WHERE e.season = 13 AND e.episode IN (4, 5)
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 6 Hidden Creek — 9 colors.
+-- Ep 6 Hidden Creek: 9 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 13 AND e.episode = 6
@@ -57,7 +57,7 @@ WHERE e.season = 13 AND e.episode = 6
                  'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown',
                  'Yellow Ochre');
 
--- Ep 8 Mountain Exhibition — 10 colors.
+-- Ep 8 Mountain Exhibition: 10 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 13 AND e.episode = 8
@@ -65,14 +65,14 @@ WHERE e.season = 13 AND e.episode = 8
                  'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White',
                  'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 9 Emerald Waters — 8 colors.
+-- Ep 9 Emerald Waters: 8 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 13 AND e.episode = 9
   AND c.name IN ('Cadmium Yellow', 'Dark Sienna', 'Midnight Black', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 11 Cabin Hideaway — 10 colors.
+-- Ep 11 Cabin Hideaway: 10 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 13 AND e.episode = 11
@@ -80,7 +80,7 @@ WHERE e.season = 13 AND e.episode = 11
                  'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White',
                  'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 12 Oval Essence — 8 colors.
+-- Ep 12 Oval Essence: 8 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 13 AND e.episode = 12

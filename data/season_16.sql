@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 16 (1990)
+-- The Joy of Painting: Season 16 (1990)
 
 INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (16,  1, 'Two Seasons',                'https://www.youtube.com/embed/jwVz0uTLH1I'),
@@ -15,7 +15,7 @@ INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (16, 12, 'Mighty Mountain Lake',       'https://www.youtube.com/embed/4vXB2R8ybDE'),
     (16, 13, 'Wooded Stream Oval',         'https://www.youtube.com/embed/-XA2h17y3HU');
 
--- Eps 1 Two Seasons & 5 Double Oval Fantasy — full 13-color palette.
+-- Eps 1 Two Seasons & 5 Double Oval Fantasy: full 13-color palette.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 16 AND e.episode IN (1, 5)
@@ -24,7 +24,7 @@ WHERE e.season = 16 AND e.episode IN (1, 5)
                  'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown',
                  'Yellow Ochre');
 
--- Eps 2, 8, 13 — identical 11-color set (Phthalo Blue, no Prussian Blue).
+-- Eps 2, 8, 13: identical 11-color set (Phthalo Blue, no Prussian Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 16 AND e.episode IN (2, 8, 13)
@@ -32,7 +32,7 @@ WHERE e.season = 16 AND e.episode IN (2, 8, 13)
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 3 Wintertime Discovery — 11 colors (Prussian Blue, no Sap Green).
+-- Ep 3 Wintertime Discovery: 11 colors (Prussian Blue, no Sap Green).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 16 AND e.episode = 3
@@ -40,7 +40,7 @@ WHERE e.season = 16 AND e.episode = 3
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 4 Mountain Mirage Wood Shape — 12 colors.
+-- Ep 4 Mountain Mirage Wood Shape: 12 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 16 AND e.episode = 4
@@ -48,13 +48,13 @@ WHERE e.season = 16 AND e.episode = 4
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 6 Contemplative Lady — 1 color (monochrome portrait).
+-- Ep 6 Contemplative Lady: 1 color (monochrome portrait).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 16 AND e.episode = 6
   AND c.name IN ('Van Dyke Brown');
 
--- Ep 7 Deep Woods — 10 colors.
+-- Ep 7 Deep Woods: 10 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 16 AND e.episode = 7
@@ -62,14 +62,14 @@ WHERE e.season = 16 AND e.episode = 7
                  'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White',
                  'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 9 Barn in Snow Oval — 7 colors.
+-- Ep 9 Barn in Snow Oval: 7 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 16 AND e.episode = 9
   AND c.name IN ('Alizarin Crimson', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 10 That Time of Year — 9 colors.
+-- Ep 10 That Time of Year: 9 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 16 AND e.episode = 10
@@ -77,7 +77,7 @@ WHERE e.season = 16 AND e.episode = 10
                  'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White',
                  'Van Dyke Brown');
 
--- Ep 11 Waterfall Wonder — 10 colors (no Bright Red).
+-- Ep 11 Waterfall Wonder: 10 colors (no Bright Red).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 16 AND e.episode = 11
@@ -85,7 +85,7 @@ WHERE e.season = 16 AND e.episode = 11
                  'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White',
                  'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 12 Mighty Mountain Lake — 11 colors (Prussian Blue, no Phthalo Blue).
+-- Ep 12 Mighty Mountain Lake: 11 colors (Prussian Blue, no Phthalo Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 16 AND e.episode = 12

@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 24 (1994)
+-- The Joy of Painting: Season 24 (1994)
 
 INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (24,  1, 'Gray Mountain',             'https://www.youtube.com/embed/4XxClvPZ1RE'),
@@ -15,7 +15,7 @@ INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (24, 12, 'The Footbridge',            'https://www.youtube.com/embed/RqtDliGeyTg'),
     (24, 13, 'Snowbound Cabin',           'https://www.youtube.com/embed/obSLZWXmDak');
 
--- Eps 1, 8, 12 — full 13-color palette.
+-- Eps 1, 8, 12: full 13-color palette.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 24 AND e.episode IN (1, 8, 12)
@@ -24,14 +24,14 @@ WHERE e.season = 24 AND e.episode IN (1, 8, 12)
                  'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown',
                  'Yellow Ochre');
 
--- Eps 3 Teton Winter & 13 Snowbound Cabin — identical 6-color set.
+-- Eps 3 Teton Winter & 13 Snowbound Cabin: identical 6-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 24 AND e.episode IN (3, 13)
   AND c.name IN ('Alizarin Crimson', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue',
                  'Sap Green', 'Titanium White');
 
--- Eps 4 Little Home in the Meadow & 7 Back-Country Path — identical 10-color set.
+-- Eps 4 Little Home in the Meadow & 7 Back-Country Path: identical 10-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 24 AND e.episode IN (4, 7)
@@ -39,7 +39,7 @@ WHERE e.season = 24 AND e.episode IN (4, 7)
                  'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green',
                  'Titanium White', 'Yellow Ochre');
 
--- Ep 2 Wayside Pond — 10 colors.
+-- Ep 2 Wayside Pond: 10 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 24 AND e.episode = 2
@@ -47,7 +47,7 @@ WHERE e.season = 24 AND e.episode = 2
                  'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White',
                  'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 5 A Pretty Autumn Day — 11 colors (Phthalo Green; no Dark Sienna, no Van Dyke Brown).
+-- Ep 5 A Pretty Autumn Day: 11 colors (Phthalo Green; no Dark Sienna, no Van Dyke Brown).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 24 AND e.episode = 5
@@ -55,7 +55,7 @@ WHERE e.season = 24 AND e.episode = 5
                  'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Yellow Ochre');
 
--- Ep 6 Mirrored Images — 12 colors.
+-- Ep 6 Mirrored Images: 12 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 24 AND e.episode = 6
@@ -63,7 +63,7 @@ WHERE e.season = 24 AND e.episode = 6
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 9 Icy Lake — 11 colors (Prussian Blue, no Phthalo Blue).
+-- Ep 9 Icy Lake: 11 colors (Prussian Blue, no Phthalo Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 24 AND e.episode = 9
@@ -71,14 +71,14 @@ WHERE e.season = 24 AND e.episode = 9
                  'Indian Yellow', 'Midnight Black', 'Prussian Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 10 Rowboat on the Beach — 8 colors.
+-- Ep 10 Rowboat on the Beach: 8 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 24 AND e.episode = 10
   AND c.name IN ('Alizarin Crimson', 'Cadmium Yellow', 'Midnight Black', 'Phthalo Blue',
                  'Phthalo Green', 'Sap Green', 'Titanium White', 'Yellow Ochre');
 
--- Ep 11 Portrait of Winter — 5 colors.
+-- Ep 11 Portrait of Winter: 5 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 24 AND e.episode = 11

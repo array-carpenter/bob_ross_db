@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 22 (1993)
+-- The Joy of Painting: Season 22 (1993)
 -- First appearance of Indian Red (Ep 1).
 
 INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
@@ -16,7 +16,7 @@ INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (22, 12, 'Country Creek',        'https://www.youtube.com/embed/JDa6JPcqy88'),
     (22, 13, 'Silent Forest',        'https://www.youtube.com/embed/AE1GKcL3NuI');
 
--- Ep 1 Autumn Images — 11 colors (Indian Red, Prussian Blue; no Indian Yellow, no Phthalo Blue).
+-- Ep 1 Autumn Images: 11 colors (Indian Red, Prussian Blue; no Indian Yellow, no Phthalo Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 22 AND e.episode = 1
@@ -24,7 +24,7 @@ WHERE e.season = 22 AND e.episode = 1
                  'Indian Red', 'Midnight Black', 'Prussian Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Eps 2 Hint of Springtime, 3 Around the Bend, 9 Haven in the Valley — full 13-color palette.
+-- Eps 2 Hint of Springtime, 3 Around the Bend, 9 Haven in the Valley: full 13-color palette.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 22 AND e.episode IN (2, 3, 9)
@@ -33,7 +33,7 @@ WHERE e.season = 22 AND e.episode IN (2, 3, 9)
                  'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown',
                  'Yellow Ochre');
 
--- Eps 4, 7, 8, 12 — identical 12-color set.
+-- Eps 4, 7, 8, 12: identical 12-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 22 AND e.episode IN (4, 7, 8, 12)
@@ -41,7 +41,7 @@ WHERE e.season = 22 AND e.episode IN (4, 7, 8, 12)
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Eps 6, 11, 13 — identical 11-color set (no Prussian Blue).
+-- Eps 6, 11, 13: identical 11-color set (no Prussian Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 22 AND e.episode IN (6, 11, 13)
@@ -49,7 +49,7 @@ WHERE e.season = 22 AND e.episode IN (6, 11, 13)
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 5 Russet Winter — 9 colors.
+-- Ep 5 Russet Winter: 9 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 22 AND e.episode = 5
@@ -57,7 +57,7 @@ WHERE e.season = 22 AND e.episode = 5
                  'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown',
                  'Yellow Ochre');
 
--- Ep 10 Wintertime Blues — 7 colors.
+-- Ep 10 Wintertime Blues: 7 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 22 AND e.episode = 10

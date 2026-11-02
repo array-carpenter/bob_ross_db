@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 20 (1992)
+-- The Joy of Painting: Season 20 (1992)
 
 INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (20,  1, 'Mystic Mountain',   'https://www.youtube.com/embed/VlucWfTUo1A'),
@@ -15,7 +15,7 @@ INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (20, 12, 'Hidden Delight',    'https://www.youtube.com/embed/ZyPNzDaaDt8'),
     (20, 13, 'Double Take',       'https://www.youtube.com/embed/ppzFgG2K2k4');
 
--- Eps 1, 10, 11 — identical 12-color set.
+-- Eps 1, 10, 11: identical 12-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 20 AND e.episode IN (1, 10, 11)
@@ -23,7 +23,7 @@ WHERE e.season = 20 AND e.episode IN (1, 10, 11)
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Eps 2, 4, 6, 7, 8, 12 — identical 11-color set (no Prussian Blue).
+-- Eps 2, 4, 6, 7, 8, 12: identical 11-color set (no Prussian Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 20 AND e.episode IN (2, 4, 6, 7, 8, 12)
@@ -31,7 +31,7 @@ WHERE e.season = 20 AND e.episode IN (2, 4, 6, 7, 8, 12)
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 3 Winter in Pastel — 9 colors.
+-- Ep 3 Winter in Pastel: 9 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 20 AND e.episode = 3
@@ -39,7 +39,7 @@ WHERE e.season = 20 AND e.episode = 3
                  'Midnight Black', 'Phthalo Blue', 'Titanium White', 'Van Dyke Brown',
                  'Yellow Ochre');
 
--- Ep 5 Divine Elegance — 12 colors (Phthalo Green, no Bright Red).
+-- Ep 5 Divine Elegance: 12 colors (Phthalo Green, no Bright Red).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 20 AND e.episode = 5
@@ -47,14 +47,14 @@ WHERE e.season = 20 AND e.episode = 5
                  'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 9 Winter Paradise — 6 colors.
+-- Ep 9 Winter Paradise: 6 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 20 AND e.episode = 9
   AND c.name IN ('Alizarin Crimson', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue',
                  'Prussian Blue', 'Titanium White');
 
--- Ep 13 Double Take — full 13-color palette.
+-- Ep 13 Double Take: full 13-color palette.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 20 AND e.episode = 13

@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 3 (1984)
+-- The Joy of Painting: Season 3 (1984)
 
 INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (3,  1, 'Mountain Retreat', 'https://www.youtube.com/embed/hoimk4s8JoQ'),
@@ -23,21 +23,21 @@ WHERE e.season = 3 AND e.episode IN (1, 2, 3, 11)
                  'Indian Yellow', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 4 Winter Night — 6 colors.
+-- Ep 4 Winter Night: 6 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 3 AND e.episode = 4
   AND c.name IN ('Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Phthalo Green',
                  'Titanium White', 'Van Dyke Brown');
 
--- Ep 5 Distant Hills — 7 colors.
+-- Ep 5 Distant Hills: 7 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 3 AND e.episode = 5
   AND c.name IN ('Alizarin Crimson', 'Burnt Umber', 'Cadmium Yellow', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 6 Covered Bridge — 10 colors (includes Midnight Black).
+-- Ep 6 Covered Bridge: 10 colors (includes Midnight Black).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 3 AND e.episode = 6
@@ -45,7 +45,7 @@ WHERE e.season = 3 AND e.episode = 6
                  'Midnight Black', 'Prussian Blue', 'Sap Green', 'Titanium White',
                  'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 7 Quiet Inlet — 10 colors.
+-- Ep 7 Quiet Inlet: 10 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 3 AND e.episode = 7
@@ -53,14 +53,14 @@ WHERE e.season = 3 AND e.episode = 7
                  'Phthalo Green', 'Prussian Blue', 'Sap Green', 'Titanium White',
                  'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 8 Night Light — 8 colors.
+-- Ep 8 Night Light: 8 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 3 AND e.episode = 8
   AND c.name IN ('Alizarin Crimson', 'Burnt Umber', 'Cadmium Yellow', 'Phthalo Green',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Eps 9 The Old Mill & 12 Hidden Lake — identical 10-color set.
+-- Eps 9 The Old Mill & 12 Hidden Lake: identical 10-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 3 AND e.episode IN (9, 12)
@@ -68,14 +68,14 @@ WHERE e.season = 3 AND e.episode IN (9, 12)
                  'Phthalo Blue', 'Prussian Blue', 'Sap Green', 'Titanium White',
                  'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 10 Campfire — 7 colors.
+-- Ep 10 Campfire: 7 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 3 AND e.episode = 10
   AND c.name IN ('Alizarin Crimson', 'Bright Red', 'Burnt Umber', 'Cadmium Yellow',
                  'Indian Yellow', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 13 Peaceful Waters — 9 colors.
+-- Ep 13 Peaceful Waters: 9 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 3 AND e.episode = 13

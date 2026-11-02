@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 6 (1985)
+-- The Joy of Painting: Season 6 (1985)
 
 INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (6,  1, 'Blue River',         'https://www.youtube.com/embed/LygUyAb78oY'),
@@ -15,7 +15,7 @@ INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (6, 12, 'Marshlands',         'https://www.youtube.com/embed/Ugiwi8uizpg'),
     (6, 13, 'Blaze of Color',     'https://www.youtube.com/embed/se7wOprxRGs');
 
--- Eps 1, 2, 4 — 11 colors (Prussian Blue, no Phthalo Green).
+-- Eps 1, 2, 4: 11 colors (Prussian Blue, no Phthalo Green).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 6 AND e.episode IN (1, 2, 4)
@@ -23,7 +23,7 @@ WHERE e.season = 6 AND e.episode IN (1, 2, 4)
                  'Indian Yellow', 'Phthalo Blue', 'Prussian Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Eps 3 Morning Mist & 12 Marshlands — identical 10-color set.
+-- Eps 3 Morning Mist & 12 Marshlands: identical 10-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 6 AND e.episode IN (3, 12)
@@ -31,7 +31,7 @@ WHERE e.season = 6 AND e.episode IN (3, 12)
                  'Indian Yellow', 'Phthalo Blue', 'Sap Green', 'Titanium White',
                  'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 5 Secluded Forest — 11 colors. (Source's stated count of 12 was an error;
+-- Ep 5 Secluded Forest: 11 colors. (Source's stated count of 12 was an error;
 -- confirmed 11 colors, no Prussian Blue. "Permanent Red" = Bright Red.)
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
@@ -40,14 +40,14 @@ WHERE e.season = 6 AND e.episode = 5
                  'Indian Yellow', 'Phthalo Blue', 'Phthalo Green', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 6 Snow Trail — 8 colors.
+-- Ep 6 Snow Trail: 8 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 6 AND e.episode = 6
   AND c.name IN ('Alizarin Crimson', 'Burnt Umber', 'Cadmium Yellow', 'Phthalo Blue',
                  'Phthalo Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Eps 7, 9, 11, 13 — 11 colors (Phthalo Green, no Prussian Blue).
+-- Eps 7, 9, 11, 13: 11 colors (Phthalo Green, no Prussian Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 6 AND e.episode IN (7, 9, 11, 13)
@@ -55,14 +55,14 @@ WHERE e.season = 6 AND e.episode IN (7, 9, 11, 13)
                  'Indian Yellow', 'Phthalo Blue', 'Phthalo Green', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 8 Horizons West — 7 colors.
+-- Ep 8 Horizons West: 7 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 6 AND e.episode = 8
   AND c.name IN ('Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow',
                  'Prussian Blue', 'Titanium White', 'Van Dyke Brown');
 
--- Ep 10 Country Life — 10 colors.
+-- Ep 10 Country Life: 10 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 6 AND e.episode = 10

@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 15 (1990)
+-- The Joy of Painting: Season 15 (1990)
 
 INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (15,  1, 'Splendor of Winter',       'https://www.youtube.com/embed/oJvk7gPDHiE'),
@@ -15,7 +15,7 @@ INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (15, 12, 'Deep Forest Lake',         'https://www.youtube.com/embed/2bjFmSQjQrw'),
     (15, 13, 'Peaks of Majesty',         'https://www.youtube.com/embed/lTb8DN6G6dE');
 
--- Eps 2, 7, 8, 11, 12 — identical 12-color set.
+-- Eps 2, 7, 8, 11, 12: identical 12-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 15 AND e.episode IN (2, 7, 8, 11, 12)
@@ -23,7 +23,7 @@ WHERE e.season = 15 AND e.episode IN (2, 7, 8, 11, 12)
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 1 Splendor of Winter — 10 colors.
+-- Ep 1 Splendor of Winter: 10 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 15 AND e.episode = 1
@@ -31,7 +31,7 @@ WHERE e.season = 15 AND e.episode = 1
                  'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Titanium White',
                  'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 3 Grandpa's Barn — 11 colors (Prussian Blue, no Phthalo Blue).
+-- Ep 3 Grandpa's Barn: 11 colors (Prussian Blue, no Phthalo Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 15 AND e.episode = 3
@@ -39,7 +39,7 @@ WHERE e.season = 15 AND e.episode = 3
                  'Indian Yellow', 'Midnight Black', 'Prussian Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 4 Peaceful Reflections — full 13-color palette.
+-- Ep 4 Peaceful Reflections: full 13-color palette.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 15 AND e.episode = 4
@@ -48,14 +48,14 @@ WHERE e.season = 15 AND e.episode = 4
                  'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown',
                  'Yellow Ochre');
 
--- Ep 5 Hidden Winter Moon Oval — 7 colors.
+-- Ep 5 Hidden Winter Moon Oval: 7 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 15 AND e.episode = 5
   AND c.name IN ('Alizarin Crimson', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue',
                  'Prussian Blue', 'Titanium White', 'Van Dyke Brown');
 
--- Ep 6 Waves of Wonder — 11 colors (Phthalo Green, no Indian Yellow, no Sap Green).
+-- Ep 6 Waves of Wonder: 11 colors (Phthalo Green, no Indian Yellow, no Sap Green).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 15 AND e.episode = 6
@@ -63,14 +63,14 @@ WHERE e.season = 15 AND e.episode = 6
                  'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 9 Christmas Eve Snow — 8 colors.
+-- Ep 9 Christmas Eve Snow: 8 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 15 AND e.episode = 9
   AND c.name IN ('Alizarin Crimson', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black',
                  'Phthalo Blue', 'Prussian Blue', 'Titanium White', 'Van Dyke Brown');
 
--- Ep 10 Forest Down Oval — 11 colors (Phthalo Blue, no Prussian Blue).
+-- Ep 10 Forest Down Oval: 11 colors (Phthalo Blue, no Prussian Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 15 AND e.episode = 10
@@ -78,7 +78,7 @@ WHERE e.season = 15 AND e.episode = 10
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 13 Peaks of Majesty — 11 colors (no Bright Red).
+-- Ep 13 Peaks of Majesty: 11 colors (no Bright Red).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 15 AND e.episode = 13

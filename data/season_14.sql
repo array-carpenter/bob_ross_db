@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 14 (1989)
+-- The Joy of Painting: Season 14 (1989)
 -- NOTE: source skipped Episode 8 and labelled two episodes "Episode 9".
 -- By sequence, "On a Clear Day" is Episode 8 and "Riverside Escape Oval" is Episode 9.
 
@@ -17,7 +17,7 @@ INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (14, 12, 'Misty Forest Oval',      'https://www.youtube.com/embed/ddU9vQvSpw8'),
     (14, 13, 'Natural Wonder',         'https://www.youtube.com/embed/knOutsaiKfU');
 
--- Eps 1, 5, 7, 9, 10 — full 13-color palette.
+-- Eps 1, 5, 7, 9, 10: full 13-color palette.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 14 AND e.episode IN (1, 5, 7, 9, 10)
@@ -26,7 +26,7 @@ WHERE e.season = 14 AND e.episode IN (1, 5, 7, 9, 10)
                  'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown',
                  'Yellow Ochre');
 
--- Eps 2, 6, 11 — identical 12-color set.
+-- Eps 2, 6, 11: identical 12-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 14 AND e.episode IN (2, 6, 11)
@@ -34,7 +34,7 @@ WHERE e.season = 14 AND e.episode IN (2, 6, 11)
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Eps 3 Mountain Moonlight Oval & 13 Natural Wonder — identical 11-color set (no Bright Red).
+-- Eps 3 Mountain Moonlight Oval & 13 Natural Wonder: identical 11-color set (no Bright Red).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 14 AND e.episode IN (3, 13)
@@ -42,14 +42,14 @@ WHERE e.season = 14 AND e.episode IN (3, 13)
                  'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 4 Snowy Solitude — 7 colors.
+-- Ep 4 Snowy Solitude: 7 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 14 AND e.episode = 4
   AND c.name IN ('Alizarin Crimson', 'Dark Sienna', 'Midnight Black', 'Phthalo Blue',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 8 On a Clear Day — 11 colors (no Sap Green).
+-- Ep 8 On a Clear Day: 11 colors (no Sap Green).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 14 AND e.episode = 8
@@ -57,7 +57,7 @@ WHERE e.season = 14 AND e.episode = 8
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 12 Misty Forest Oval — 11 colors (no Prussian Blue).
+-- Ep 12 Misty Forest Oval: 11 colors (no Prussian Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 14 AND e.episode = 12

@@ -1,4 +1,4 @@
--- Bob Ross "The Joy of Painting" — color database schema
+-- Bob Ross "The Joy of Painting": color database schema
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE IF NOT EXISTS colors (

@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 2 (1983)
+-- The Joy of Painting: Season 2 (1983)
 
 INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (2,  1, 'Meadow Lake',              'https://www.youtube.com/embed/GARWowi0QXI'),
@@ -23,13 +23,13 @@ WHERE e.season = 2 AND e.episode IN (1, 2, 3, 8, 10, 12, 13)
                  'Indian Yellow', 'Phthalo Blue', 'Phthalo Green', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 4 Shades of Grey — 3 colors.
+-- Ep 4 Shades of Grey: 3 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 2 AND e.episode = 4
   AND c.name IN ('Prussian Blue', 'Titanium White', 'Van Dyke Brown');
 
--- Eps 5, 6, 7 — full minus Indian Yellow (11).
+-- Eps 5, 6, 7: full minus Indian Yellow (11).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 2 AND e.episode IN (5, 6, 7)
@@ -37,7 +37,7 @@ WHERE e.season = 2 AND e.episode IN (5, 6, 7)
                  'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 9 Black and White Seascape — full minus Burnt Umber (11).
+-- Ep 9 Black and White Seascape: full minus Burnt Umber (11).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 2 AND e.episode = 9
@@ -45,7 +45,7 @@ WHERE e.season = 2 AND e.episode = 9
                  'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 11 Black Waterfall — full minus Bright Red (11).
+-- Ep 11 Black Waterfall: full minus Bright Red (11).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 2 AND e.episode = 11

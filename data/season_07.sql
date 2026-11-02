@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 7 (1986)
+-- The Joy of Painting: Season 7 (1986)
 
 INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (7,  1, 'Winter Cabin',         'https://www.youtube.com/embed/kdlHV6ceI_gw'),
@@ -15,14 +15,14 @@ INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (7, 12, 'Dock Scene',           'https://www.youtube.com/embed/4KYxkqlzyqM'),
     (7, 13, 'Dark Waterfall',       'https://www.youtube.com/embed/VqMbL00eZqw');
 
--- Ep 1 Winter Cabin — 6 colors.
+-- Ep 1 Winter Cabin: 6 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 7 AND e.episode = 1
   AND c.name IN ('Bright Red', 'Dark Sienna', 'Prussian Blue', 'Titanium White',
                  'Van Dyke Brown', 'Yellow Ochre');
 
--- Eps 2 Secluded Lake & 4 Mountain Cabin — identical 12-color set.
+-- Eps 2 Secluded Lake & 4 Mountain Cabin: identical 12-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 7 AND e.episode IN (2, 4)
@@ -30,21 +30,21 @@ WHERE e.season = 7 AND e.episode IN (2, 4)
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Phthalo Green',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 3 Evergreens at Sunset — 7 colors.
+-- Ep 3 Evergreens at Sunset: 7 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 7 AND e.episode = 3
   AND c.name IN ('Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Indian Yellow',
                  'Midnight Black', 'Sap Green', 'Titanium White');
 
--- Ep 5 Portrait of Sally — 8 colors.
+-- Ep 5 Portrait of Sally: 8 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 7 AND e.episode = 5
   AND c.name IN ('Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Dark Sienna',
                  'Indian Yellow', 'Phthalo Blue', 'Titanium White', 'Yellow Ochre');
 
--- Ep 6 Misty Waterfall — 11 colors.
+-- Ep 6 Misty Waterfall: 11 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 7 AND e.episode = 6
@@ -52,7 +52,7 @@ WHERE e.season = 7 AND e.episode = 6
                  'Midnight Black', 'Phthalo Blue', 'Phthalo Green', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 7 Barn at Sunset — 10 colors.
+-- Ep 7 Barn at Sunset: 10 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 7 AND e.episode = 7
@@ -60,7 +60,7 @@ WHERE e.season = 7 AND e.episode = 7
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Titanium White',
                  'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 8 Mountain Splendor — 11 colors.
+-- Ep 8 Mountain Splendor: 11 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 7 AND e.episode = 8
@@ -68,7 +68,7 @@ WHERE e.season = 7 AND e.episode = 8
                  'Indian Yellow', 'Midnight Black', 'Prussian Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 9 Lake by Mountain — 11 colors.
+-- Ep 9 Lake by Mountain: 11 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 7 AND e.episode = 9
@@ -76,7 +76,7 @@ WHERE e.season = 7 AND e.episode = 9
                  'Phthalo Blue', 'Phthalo Green', 'Prussian Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 10 Mountain Glory — 11 colors.
+-- Ep 10 Mountain Glory: 11 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 7 AND e.episode = 10
@@ -84,13 +84,13 @@ WHERE e.season = 7 AND e.episode = 10
                  'Midnight Black', 'Phthalo Blue', 'Prussian Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 11 Grey Winter — 3 colors.
+-- Ep 11 Grey Winter: 3 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 7 AND e.episode = 11
   AND c.name IN ('Alizarin Crimson', 'Midnight Black', 'Titanium White');
 
--- Ep 12 Dock Scene — 9 colors.
+-- Ep 12 Dock Scene: 9 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 7 AND e.episode = 12
@@ -98,7 +98,7 @@ WHERE e.season = 7 AND e.episode = 12
                  'Phthalo Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown',
                  'Yellow Ochre');
 
--- Ep 13 Dark Waterfall — 10 colors.
+-- Ep 13 Dark Waterfall: 10 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 7 AND e.episode = 13

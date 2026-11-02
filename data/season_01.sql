@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 1 (1983)
+-- The Joy of Painting: Season 1 (1983)
 
 INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (1,  1, 'A Walk in the Woods',  'https://www.youtube.com/embed/oh5p5f5_-7A'),
@@ -25,13 +25,13 @@ WHERE e.season = 1 AND e.episode IN (1, 2, 3, 5, 7, 8, 9, 10, 11, 13)
   AND c.name IN ('Alizarin Crimson', 'Bright Red', 'Cadmium Yellow', 'Phthalo Green',
                  'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown');
 
--- Ep 4 Winter Mist & Ep 6 Winter Moon — 3 colors.
+-- Ep 4 Winter Mist & Ep 6 Winter Moon: 3 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 1 AND e.episode IN (4, 6)
   AND c.name IN ('Prussian Blue', 'Titanium White', 'Van Dyke Brown');
 
--- Ep 12 Snow Fall — 4 colors.
+-- Ep 12 Snow Fall: 4 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 1 AND e.episode = 12

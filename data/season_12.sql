@@ -1,4 +1,4 @@
--- The Joy of Painting — Season 12 (1988)
+-- The Joy of Painting: Season 12 (1988)
 
 INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (12,  1, 'Golden Knoll',          'https://www.youtube.com/embed/-O0Bs65eN5w'),
@@ -15,14 +15,14 @@ INSERT OR IGNORE INTO episodes (season, episode, title, youtube_url) VALUES
     (12, 12, 'Mountain in an Oval',   'https://www.youtube.com/embed/1jRPshs27H8'),
     (12, 13, 'Winter Mountain',       'https://www.youtube.com/embed/46vI20697HI');
 
--- Ep 1 Golden Knoll — 7 colors.
+-- Ep 1 Golden Knoll: 7 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 12 AND e.episode = 1
   AND c.name IN ('Cadmium Yellow', 'Dark Sienna', 'Indian Yellow', 'Midnight Black',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Eps 2, 6, 7, 10, 11 — identical 12-color set.
+-- Eps 2, 6, 7, 10, 11: identical 12-color set.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 12 AND e.episode IN (2, 6, 7, 10, 11)
@@ -30,7 +30,7 @@ WHERE e.season = 12 AND e.episode IN (2, 6, 7, 10, 11)
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 3 Secluded Mountain — full 13-color palette.
+-- Ep 3 Secluded Mountain: full 13-color palette.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 12 AND e.episode = 3
@@ -39,7 +39,7 @@ WHERE e.season = 12 AND e.episode = 3
                  'Prussian Blue', 'Sap Green', 'Titanium White', 'Van Dyke Brown',
                  'Yellow Ochre');
 
--- Ep 4 Bright Autumn Trees — 12 colors (Phthalo Green, no Phthalo Blue).
+-- Ep 4 Bright Autumn Trees: 12 colors (Phthalo Green, no Phthalo Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 12 AND e.episode = 4
@@ -47,14 +47,14 @@ WHERE e.season = 12 AND e.episode = 4
                  'Indian Yellow', 'Midnight Black', 'Phthalo Green', 'Prussian Blue',
                  'Sap Green', 'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 5 Black Seascape — 8 colors.
+-- Ep 5 Black Seascape: 8 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 12 AND e.episode = 5
   AND c.name IN ('Bright Red', 'Cadmium Yellow', 'Dark Sienna', 'Midnight Black',
                  'Phthalo Blue', 'Phthalo Green', 'Titanium White', 'Van Dyke Brown');
 
--- Ep 8 Evening Waterfall — 10 colors.
+-- Ep 8 Evening Waterfall: 10 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 12 AND e.episode = 8
@@ -62,7 +62,7 @@ WHERE e.season = 12 AND e.episode = 8
                  'Midnight Black', 'Phthalo Blue', 'Sap Green', 'Titanium White',
                  'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 9 Tropical Seascape — 11 colors (no Sap Green).
+-- Ep 9 Tropical Seascape: 11 colors (no Sap Green).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 12 AND e.episode = 9
@@ -70,7 +70,7 @@ WHERE e.season = 12 AND e.episode = 9
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Prussian Blue',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 12 Mountain in an Oval — 11 colors (no Prussian Blue).
+-- Ep 12 Mountain in an Oval: 11 colors (no Prussian Blue).
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 12 AND e.episode = 12
@@ -78,7 +78,7 @@ WHERE e.season = 12 AND e.episode = 12
                  'Indian Yellow', 'Midnight Black', 'Phthalo Blue', 'Sap Green',
                  'Titanium White', 'Van Dyke Brown', 'Yellow Ochre');
 
--- Ep 13 Winter Mountain — 7 colors.
+-- Ep 13 Winter Mountain: 7 colors.
 INSERT OR IGNORE INTO episode_colors (episode_id, color_id)
 SELECT e.id, c.id FROM episodes e JOIN colors c
 WHERE e.season = 12 AND e.episode = 13
