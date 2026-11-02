@@ -23,17 +23,18 @@ spade_fonts <- function() {
            error = function(e) font_add("newsreader",
              "/System/Library/Fonts/Supplemental/Times New Roman.ttf",
              bold = "/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf"))
+  font_add("playfair", "/Users/raycarpenter/Code/nfl-assets/lingua/fonts/PlayfairDisplay-VariableFont_wght.ttf")
   showtext_auto(); showtext_opts(dpi = 300)
 }
 
-# Mint base theme. Titles ALL CAPS Newsreader bold; body Helvetica.
+# Mint base theme. Title Case Playfair Display titles; body Helvetica.
 theme_spade_mint <- function(base_size = 15) {
   theme_minimal(base_size = base_size, base_family = "helvetica") +
     theme(
       plot.background  = element_rect(fill = SPADE$BG, color = NA),
       panel.background = element_rect(fill = SPADE$BG, color = NA),
       text             = element_text(color = SPADE$INK),
-      plot.title       = element_text(family = "newsreader", face = "bold", size = 30,
+      plot.title       = element_text(family = "playfair", face = "plain", size = 32,
                                       color = SPADE$INK, hjust = 0, margin = margin(b = 4)),
       plot.title.position = "plot",
       plot.subtitle    = element_markdown(family = "helvetica", size = 14, color = SPADE$SUB,

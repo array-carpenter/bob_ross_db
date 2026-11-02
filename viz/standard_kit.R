@@ -1,4 +1,4 @@
-# The Standard Kit — Bob mixed 133 distinct palettes across 403 episodes,
+# The eight most-used palettes: Bob Ross used 133 distinct palettes across 403 episodes,
 # but kept reaching for the same dozen paints. Top loadouts as rows of paint
 # dabs, each dab in its real oil hex, sized by how many episodes used it.
 
@@ -20,6 +20,7 @@ if (!ok) {
   font_add(title_family, "/System/Library/Fonts/Supplemental/Noteworthy.ttc")
   font_add(body_family,  "/System/Library/Fonts/Supplemental/Avenir Next.ttc")
 }
+font_add("playfair", "/Users/raycarpenter/Code/nfl-assets/lingua/fonts/PlayfairDisplay-VariableFont_wght.ttf")
 showtext_auto(); showtext_opts(dpi = 300)
 
 con <- dbConnect(SQLite(), db)
@@ -87,7 +88,7 @@ p <- ggplot() +
             angle = 38, hjust = 0) +
   # callouts sit in the row gaps, never up in the column names
   annotate("text", x = 0.55, y = sigs$y[sigs$rank == 1] - 0.5,
-           label = "the standard dozen: one of every six episodes used this exact kit",
+           label = "the 12-paint palette: 66 of 403 episodes used exactly this set",
            family = title_family, size = 5.8, color = "#6B4F2E", hjust = 0) +
   annotate("text", x = 0.55, y = sigs$y[sigs$n_paints == 8][1] - 0.5,
            label = "Season 1's original eight",
@@ -96,14 +97,14 @@ p <- ggplot() +
   scale_x_continuous(limits = c(0.4, x_lab + 4.4)) +
   coord_cartesian(clip = "off") +
   labs(
-    title = "The Standard Kit",
-    subtitle = "Bob Ross squeezed out 133 distinct paint loadouts across 403 episodes of The Joy of Painting,\nbut he kept coming back to the same dozen. His eight favorite loadouts, in the paints' own colors.",
-    caption = "Ray Carpenter | TheSpade.Substack.com | @csv_enjoyer | data: yesyoucanpaint.com (The Joy of Painting, seasons 1-31)"
+    title = "The Eight Palettes Bob Ross Used Most",
+    subtitle = "Each row is one palette: the paints on it for a whole episode. Each dab is one paint, in its own color.",
+    caption = "133 different palettes in 403 episodes.\nRay Carpenter | TheSpade.Substack.com | @csv_enjoyer | data: yesyoucanpaint.com (The Joy of Painting, seasons 1-31)"
   ) +
   theme_void(base_family = body_family) +
   theme(
     plot.background = element_rect(fill = BG, color = NA),
-    plot.title      = element_text(family = title_family, size = 64, color = "#2B2118",
+    plot.title      = element_text(family = "playfair", size = 40, color = "#2B2118",
                                    hjust = 0, margin = margin(b = 2)),
     plot.title.position = "plot",
     plot.subtitle   = element_text(size = 16, color = "#5A4A38", lineheight = 1.05,

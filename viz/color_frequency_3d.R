@@ -76,13 +76,13 @@ p <- ggplot() +
            size=3.6, colour=SPADE_MUTE) +
   coord_cartesian(xlim=c(x_lo-1.6, x_hi+depth_x+0.2), ylim=c(-ymax*0.30, ymax+depth_y),
                   clip="off", expand=FALSE) +
-  labs(title="BOB'S FIFTEEN PAINTS, RANKED",
-       subtitle="Oil paint colors ranked by episode appearance count in *The Joy of Painting*'s 403 episodes from 1983-1994",
+  labs(title="Bob Ross Paints Ranked by Episodes, 1983-1994",
+       subtitle="Number of episodes, out of 403, that used each paint.",
        caption=CAPTION_FB) +
   theme_void(base_size=14) +
   theme(plot.background=element_rect(fill=SPADE_BG, colour=NA),
         text=element_text(family="helvetica", colour=SPADE_TEXT),
-        plot.title=element_text(family="newsreader", face="bold", size=23, colour=SPADE_TEXT, hjust=0, margin=margin(b=4)),
+        plot.title=element_text(family="playfair", face="plain", size=28, colour=SPADE_TEXT, hjust=0, margin=margin(b=4)),
         plot.subtitle=element_markdown(size=12, colour=SPADE_MUTE, hjust=0, margin=margin(b=16)),
         plot.caption=element_text(size=9, colour="#888888", hjust=0, margin=margin(t=14)),
         plot.title.position="plot", plot.caption.position="plot", plot.margin=margin(20,25,18,25))

@@ -17,7 +17,7 @@ clouds, mountains, cabins) from FiveThirtyEight's subject tags.
 | `analysis/` | Palette clustering, subject/palette association, snow-scene model |
 | `viz/` | Chart scripts (R) and rendered PNGs |
 
-The `.db` is gitignored — rebuild it locally:
+The `.db` is gitignored: rebuild it locally:
 
 ```bash
 ./build.sh
@@ -25,14 +25,14 @@ The `.db` is gitignored — rebuild it locally:
 
 ## Schema
 
-- **colors** — `id`, `name` (unique), `hex` (validated `#RRGGBB`)
-- **episodes** — `id`, `season`, `episode`, `title`, `youtube_url` (unique on `season, episode`)
-- **episode_colors** — junction of `episode_id` ↔ `color_id`
-- **v_episode_palette** — flattened view: season, episode, title, color, hex
-- **elements** — `id`, `name`: the 67 FiveThirtyEight tags, lowercased (`tree`,
+- **colors**: `id`, `name` (unique), `hex` (validated `#RRGGBB`)
+- **episodes**: `id`, `season`, `episode`, `title`, `youtube_url` (unique on `season, episode`)
+- **episode_colors**: junction of `episode_id` ↔ `color_id`
+- **v_episode_palette**: flattened view: season, episode, title, color, hex
+- **elements**: `id`, `name`: the 67 FiveThirtyEight tags, lowercased (`tree`,
   `clouds`, `cabin`, frame types, guest painters, ...)
-- **episode_elements** — junction of `episode_id` ↔ `element_id`
-- **v_episode_elements** — flattened view: season, episode, title, element
+- **episode_elements**: junction of `episode_id` ↔ `element_id`
+- **v_episode_elements**: flattened view: season, episode, title, element
 
 ## Example queries
 
@@ -60,16 +60,21 @@ GROUP BY p.color ORDER BY pct DESC;
 
 ## Analysis
 
-Two scripts in `analysis/`, both run from the repo root after `./build.sh`:
+Three scripts in `analysis/`, all run from the repo root after `./build.sh`:
 
-- `explore.R` — k-medoids palette archetypes (Jaccard distance over the 403×15
+- `explore.R`: k-medoids palette archetypes (Jaccard distance over the 403×15
   presence matrix) and subject→palette association from keyword-tagged titles
   (Fisher tests, BH-corrected). Three archetypes fall out: the early Burnt Umber
   palette (S1–6), the later standard kit, and a cross-era winter palette.
-- `snow_predict.R` — can you guess a snow scene from the palette alone? A
+- `snow_predict.R`: can you guess a snow scene from the palette alone? A
   one-feature logistic (count of warm/green paints present) hits 0.90 AUC under
   stratified 5-fold CV. The depth-2 tree version: no Cadmium Yellow and no Sap
   Green → 70% chance it's a snow scene.
+- `novelty.R`: palette novelty index: each episode's Jaccard distance to the
+  closest loadout Bob Ross had already used (0 = exact repeat). Novelty decays from
+  0.14 in Season 1 to 0.01 by Season 31; 67% of all episodes reran an earlier
+  palette exactly, and the only forced spike is Season 7, when Dark Sienna
+  replaced Burnt Umber.
 
 Each saves an `.rds` (gitignored) that the corresponding chart script reads.
 
@@ -80,13 +85,14 @@ Scripts in `viz/`, run from the repo root (`Rscript viz/color_pie.R`).
 (grouped in `viz/_subjects.R`, so `tree`, `trees`, `conifer`, ... count as one "Trees").
 
 ![Every color Bob Ross used](viz/color_pie.png)
-![31 seasons of color](viz/31_seasons_of_color.png)
-![Paint lifespans](viz/paint_lifespans.png)
-![The standard kit](viz/standard_kit.png)
-![Bob's fifteen paints, ranked](viz/color_frequency_3d.png)
-![Guessing snow from Bob's palette](viz/snow_from_palette.png)
+![Bob Ross paint use by season](viz/31_seasons_of_color.png)
+![Bob Ross paint lifespans](viz/paint_lifespans.png)
+![The eight palettes Bob Ross used most](viz/standard_kit.png)
+![Bob Ross paints ranked by episodes](viz/color_frequency_3d.png)
+![Guessing a Bob Ross snow scene from his palette](viz/snow_from_palette.png)
 ![What Bob Ross painted](viz/subjects_3d.png)
 ![Paints Bob Ross used by subject](viz/paints_by_subject.png)
+![How new each Bob Ross palette was](viz/palette_novelty.png)
 
 ## Adding a season
 
@@ -110,7 +116,7 @@ The subject tags come from Walt Hickey's
 (FiveThirtyEight, 2014). The CSV is copied as-is from
 [fivethirtyeight/data](https://github.com/fivethirtyeight/data/tree/master/bob-ross)
 and used under [CC BY 4.0](https://github.com/fivethirtyeight/data/blob/master/LICENSE).
-Their data has what Bob painted but not the paints he used. With both in one
+Their data has what Bob Ross painted but not the paints he used. With both in one
 database you can ask which paints go with which subjects.
 
 Episodes join on season and episode number (all 403 match). About 30 titles are

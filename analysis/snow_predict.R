@@ -1,11 +1,11 @@
-# "Can a simple model guess a snow scene from Bob's palette alone?"
+# "Can a simple model guess a snow scene from Bob Ross's palette alone?"
 # Target: is the episode a winter/snow painting (from its title)?
 # Models kept deliberately simple + explainable:
 #   M0  base rate (always "not snow")
 #   M1  logistic on a single "warm/green paint count" (0-6)  <- the explainable star
 #   M2  depth-2 decision tree (rpart) -> plain-English rule
 #   M3  logistic on 3 hand-picked paints (sanity ceiling)
-# Honest stratified 5-fold CV, AUC computed by hand (Mann-Whitney). seed=42.
+# Stratified 5-fold CV, AUC computed by hand (Mann-Whitney). seed=42.
 
 suppressPackageStartupMessages({
   library(DBI); library(RSQLite); library(dplyr); library(rpart)

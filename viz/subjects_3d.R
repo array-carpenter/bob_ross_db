@@ -1,5 +1,5 @@
 # What Bob Ross painted (FiveThirtyEight subject tags), as the Spade 3D bar chart.
-# Each bar is extruded in the paint Bob leaned on hardest for that subject:
+# Each bar is extruded in the paint Bob Ross leaned on hardest for that subject:
 # the paint with the biggest lift over episodes without the subject.
 
 suppressPackageStartupMessages({
@@ -97,8 +97,8 @@ p <- ggplot() +
   coord_cartesian(xlim=c(x_lo-1.6, x_hi+depth_x+0.2), ylim=c(-ymax*0.36, ymax+depth_y),
                   clip="off", expand=FALSE) +
   labs(title="What Bob Ross Painted, 1983-1994",
-       subtitle="Percent of the 403 episodes with each subject. Each bar is in the paint that rose most<br>above its usual rate on that subject (gray label). White means no paint stood out.",
-       caption=paste0(sub(")$", "", CAPTION_FB), "); subjects: FiveThirtyEight")) +
+       subtitle="Percent of the 403 episodes with each subject. Each bar is in the paint whose use rose most<br>with that subject, compared with episodes without it (gray label).",
+       caption=paste0(sub(")$", "", CAPTION_FB), "); subjects: FiveThirtyEight\nBar paint: highest ratio of use with the subject to use without it, among paints in 30% or more of its episodes. White: no ratio above 1.1.")) +
   theme_void(base_size=14) +
   theme(plot.background=element_rect(fill=SPADE_BG, colour=NA),
         text=element_text(family="helvetica", colour=SPADE_TEXT),

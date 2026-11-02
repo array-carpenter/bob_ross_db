@@ -1,4 +1,4 @@
-# "Guessing snow from Bob's palette" — one explainable logistic feature.
+# "Guessing snow from Bob Ross's palette": one explainable logistic feature.
 # Rebuilt to Ray Carpenter spade brand: mint canvas, ALL-CAPS Newsreader title,
 # Helvetica body, direct labels (no collisions), a dedicated paint-key band,
 # full-width header rule + spade logo composited via magick.
@@ -26,10 +26,9 @@ curve <- data.frame(warm_count = gx,
                     p = predict(m1, data.frame(warm_count = gx), type = "response"))
 
 rule_md <- paste0(
-  "<b style='font-size:15pt'>The rule, in one sentence</b><br>",
+  "<b style='font-size:15pt'>Two-paint rule (depth-2 tree)</b><br>",
   "<span style='font-size:13pt'>No Cadmium Yellow and no Sap Green on the<br>",
-  "palette? It is probably a snow scene (70% are).</span><br>",
-  "<span style='font-size:11pt;color:#888888'>Cross-validated AUC 0.90, one feature.</span>")
+  "palette: 70% of those episodes are snow scenes.</span>")
 
 # ============================ main panel ============================
 main <- ggplot() +
@@ -76,8 +75,8 @@ warm_paints <- tibble::tribble(
 
 chip_x <- seq(3.45, 10.05, length.out = 6)
 key <- ggplot(warm_paints) +
-  annotate("text", x = 0.2, y = 1, hjust = 0, label = "THE SIX WARM + GREEN PAINTS",
-           family = "newsreader", fontface = "bold", size = 4.4, color = INK) +
+  annotate("text", x = 0.2, y = 1, hjust = 0, label = "The Six Warm and Green Paints",
+           family = "playfair", fontface = "plain", size = 4.4, color = INK) +
   geom_point(aes(chip_x[x], 1, fill = hex), shape = 22, size = 6.6, color = "#9aa6a7", stroke = 0.4) +
   geom_text(aes(chip_x[x], 0.30, label = name), family = "helvetica", size = 3.3, color = SUB) +
   scale_fill_identity() +
@@ -91,12 +90,12 @@ key <- ggplot(warm_paints) +
 p <- main / key +
   plot_layout(heights = c(1, 0.17)) +
   plot_annotation(
-    title = "GUESSING SNOW FROM BOB'S PALETTE",
-    subtitle = "Each warm or green paint on the palette makes a snow scene less likely. One logistic feature, 403 episodes.",
-    caption = CAPTION_FB,
+    title = "Guessing a Bob Ross Snow Scene From His Palette",
+    subtitle = "The share of snow scenes falls as the count of warm and green paints rises.<br>Logistic model with one input: that count.",
+    caption = paste0("Snow scene = title with Winter, Snow, Frost, Frozen, Christmas or Wintry (55 of 403 episodes). Cross-validated AUC 0.90 (stratified 5-fold).\n", CAPTION_FB),
     theme = theme(
       plot.background = element_rect(fill = BG, color = NA),
-      plot.title    = element_text(family = "newsreader", face = "bold", size = 30,
+      plot.title    = element_text(family = "playfair", face = "plain", size = 30,
                                    color = INK, hjust = 0, margin = margin(b = 4)),
       plot.subtitle = ggtext::element_markdown(family = "helvetica", size = 14, color = SUB,
                                    margin = margin(b = 20)),

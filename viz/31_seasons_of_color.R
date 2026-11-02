@@ -1,4 +1,4 @@
-# 31 Seasons of Color — each oil's season-by-season usage, painted in its own hex.
+# 31 Seasons of Color: each oil's season-by-season usage, painted in its own hex.
 # Ray Carpenter spade brand: mint canvas, ALL-CAPS Newsreader title, Helvetica body.
 # Brighter cell = that paint appeared in more of the season's 13 episodes.
 
@@ -60,7 +60,7 @@ p <- ggplot(grid, aes(season, name)) +
   geom_tile(data = ir, aes(season, name), fill = NA, color = ACCENT,
             linewidth = 1.2, width = 0.9, height = 0.84) +
   annotate("richtext", x = 24.4, y = "Indian Red",
-           label = "<b>one happy accident</b><br>S22E1, \"Autumn Images\"",
+           label = "<b>one happy accident</b><br>its only episode, S22E1",
            family = "helvetica", size = 4.1, color = ACCENT, hjust = 0,
            fill = NA, label.color = NA, lineheight = 1.2) +
   annotate("curve", x = 24.2, y = which(levels(grid$name) == "Indian Red"),
@@ -71,8 +71,8 @@ p <- ggplot(grid, aes(season, name)) +
                      labels = c("paint", as.character(seq(1, 31, 2))),
                      expand = expansion(add = c(0.6, 0.6))) +
   coord_cartesian(clip = "off") +
-  labs(title = "31 SEASONS OF COLOR",
-       subtitle = "Every oil Bob Ross squeezed onto the palette, season by season. Each row is painted in its own color,<br>brighter the more of that season's 13 episodes it appeared in.",
+  labs(title = "Bob Ross Paint Use by Season, 1983-1994",
+       subtitle = "Each row is one paint, in its own color. The stronger the color, the more of that season's<br>13 episodes used the paint.",
        x = "season", y = NULL, caption = CAPTION_FB) +
   theme_spade_mint(base_size = 16) +
   theme(

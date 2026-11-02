@@ -1,6 +1,6 @@
 # Which paints go with which subjects: FiveThirtyEight's subject tags joined to
 # the paint list. Each cell is blended toward the paint's own hex by how often
-# Bob used it on that subject; boxes flag paints he leaned on or left out.
+# Bob Ross used it on that subject; boxes flag paints he leaned on or left out.
 
 suppressPackageStartupMessages({
   library(DBI); library(RSQLite); library(dplyr); library(tidyr); library(ggplot2); library(ragg)
@@ -59,12 +59,12 @@ p <- ggplot(g, aes(paint, subject)) +
   labs(
     title = "Paints Bob Ross Used by Subject, 1983-1994",
     subtitle = paste0(
-      "Each number is the percent of that subject's episodes that used the paint.<br>",
-      "<span style='color:", MORE, "'><b>Green box</b></span>: he used the paint much more than usual. ",
-      "<span style='color:", LESS, "'><b>Red box</b></span>: much less."),
+      "Each number is the percent of a subject's episodes that used the paint.<br>",
+      "<span style='color:", MORE, "'><b>Green box</b></span>: at least 1.4 times the paint's rate in other episodes. ",
+      "<span style='color:", LESS, "'><b>Red box</b></span>: 0.6 times or less."),
     x = NULL, y = NULL,
     caption = paste0(sub(")$", "", CAPTION_FB),
-                     "); subjects: FiveThirtyEight. (n) = episodes with that subject.")) +
+                     "); subjects: FiveThirtyEight.\n(n) = episodes with the subject. Boxes also need a rate of 20% or more on the higher side.")) +
   theme_spade_mint(base_size = 18) +
   theme(
     plot.title   = element_text(family = "playfair", face = "plain", size = 34, color = SPADE$INK,

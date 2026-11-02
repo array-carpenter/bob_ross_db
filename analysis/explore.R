@@ -1,6 +1,6 @@
 # Exploratory pass for two analyses before any viz:
-#  (A) palette archetypes  — k-medoids on Jaccard distance over the 403x15 matrix
-#  (B) subject -> palette   — keyword-tag titles, test paint over/under-representation
+#  (A) palette archetypes : k-medoids on Jaccard distance over the 403x15 matrix
+#  (B) subject -> palette  : keyword-tag titles, test paint over/under-representation
 # Print only. Decide viz design from what this shows.
 
 suppressPackageStartupMessages({

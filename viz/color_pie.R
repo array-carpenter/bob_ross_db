@@ -16,7 +16,7 @@ here   <- "."
 db     <- file.path(here, "bob_ross.db")
 outdir <- file.path(here, "viz"); dir.create(outdir, showWarnings = FALSE)
 
-title_family <- "newsreader"; body_family <- "helvetica"
+title_family <- "playfair"; body_family <- "helvetica"
 
 con <- dbConnect(SQLite(), db)
 d <- dbGetQuery(con, "
@@ -91,14 +91,14 @@ p <- ggplot() +
             family = body_family, size = 4.5, color = INK) +
   coord_fixed(xlim = c(-1.9, 1.9), ylim = c(-1.32, 1.5), clip = "off") +
   labs(
-    title = "EVERY COLOR BOB ROSS USED",
-    subtitle = "Share of all 4,108 paint applications across 403 episodes of The Joy of Painting.\nEach slice is the paint's own oil color.",
-    caption = "Ray Carpenter | TheSpade.Substack.com | @csv_enjoyer | data: yesyoucanpaint.com (The Joy of Painting, seasons 1-31)"
+    title = "Every Color Bob Ross Used, 1983-1994",
+    subtitle = "Each slice is one paint's share of all paint uses, in the paint's own color.",
+    caption = "4,108 paint uses in 403 episodes.\nRay Carpenter | TheSpade.Substack.com | @csv_enjoyer | data: yesyoucanpaint.com (The Joy of Painting, seasons 1-31)"
   ) +
   theme_void(base_family = body_family) +
   theme(
     plot.background  = element_rect(fill = BG, color = NA),
-    plot.title       = element_text(family = title_family, face = "bold", size = 38,
+    plot.title       = element_text(family = title_family, face = "plain", size = 36,
                                     color = INK, hjust = 0, margin = margin(t = 6, b = 4)),
     plot.title.position = "plot",
     plot.subtitle    = element_text(size = 16, color = SUB, hjust = 0,

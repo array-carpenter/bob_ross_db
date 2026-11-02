@@ -1,4 +1,4 @@
-# Paint Lifespans — when each oil joined and left Bob's palette.
+# Paint Lifespans: when each oil joined and left Bob Ross's palette.
 # One bar per paint, drawn in its real hex, from first to last appearance.
 # Burnt Umber retires after Season 6; Dark Sienna takes its slot the next episode.
 
@@ -20,6 +20,7 @@ if (!ok) {
   font_add(title_family, "/System/Library/Fonts/Supplemental/Noteworthy.ttc")
   font_add(body_family,  "/System/Library/Fonts/Supplemental/Avenir Next.ttc")
 }
+font_add("playfair", "/Users/raycarpenter/Code/nfl-assets/lingua/fonts/PlayfairDisplay-VariableFont_wght.ttf")
 showtext_auto(); showtext_opts(dpi = 300)
 
 con <- dbConnect(SQLite(), db)
@@ -65,12 +66,12 @@ p <- ggplot() +
             family = body_family, size = 4.3, color = "#8A795F", hjust = 0) +
   # the Burnt Umber -> Dark Sienna handoff
   annotate("text", x = 8.9, y = d$y[d$name == "Burnt Umber"] + 0.18,
-           label = "Burnt Umber retires after Season 6;\nDark Sienna takes its slot the very next episode",
+           label = "Burnt Umber's last season is Season 6;\nDark Sienna starts in the next episode, S7E1",
            family = title_family, size = 5.6, color = "#6B4F2E",
            hjust = 0, lineheight = 0.8) +
   # the happy accident
   annotate("text", x = 23.1, y = d$y[d$name == "Indian Red"] - 0.72,
-           label = "one happy accident: S22E1, \"Autumn Images\"",
+           label = "one happy accident: S22E1",
            family = title_family, size = 5.6, color = "#7A1F12", hjust = 0) +
   annotate("curve", x = 23.3, y = d$y[d$name == "Indian Red"] - 0.6,
            xend = 22.25, yend = d$y[d$name == "Indian Red"] - 0.18,
@@ -81,8 +82,8 @@ p <- ggplot() +
   scale_y_continuous(expand = expansion(add = c(0.6, 0.7))) +
   coord_cartesian(clip = "off") +
   labs(
-    title = "Paint Lifespans",
-    subtitle = "When each oil joined and left Bob Ross's palette, first to last appearance across 403 episodes.\nEach bar is the paint's own color; the count is how many episodes it appeared in.",
+    title = "Bob Ross Paint Lifespans, 1983-1994",
+    subtitle = "Each bar runs from a paint's first episode to its last, in the paint's own color.\nThe number is the count of episodes, out of 403, that used it.",
     x = "season",
     caption = "Ray Carpenter | TheSpade.Substack.com | @csv_enjoyer | data: yesyoucanpaint.com (The Joy of Painting, seasons 1-31)"
   ) +
@@ -96,7 +97,7 @@ p <- ggplot() +
     axis.title.x     = element_text(size = 17, color = "#5A4A38", margin = margin(t = 6)),
     axis.text.x      = element_text(size = 14, color = "#5A4A38"),
     text             = element_text(color = INK),
-    plot.title       = element_text(family = title_family, size = 64, color = "#2B2118",
+    plot.title       = element_text(family = "playfair", size = 40, color = "#2B2118",
                                     hjust = 0, margin = margin(b = 2)),
     plot.title.position = "plot",
     plot.subtitle    = element_text(size = 16, color = "#5A4A38", lineheight = 1.05,
