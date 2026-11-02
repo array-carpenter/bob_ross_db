@@ -20,7 +20,8 @@ if (!ok) {
   font_add(title_family, "/System/Library/Fonts/Supplemental/Noteworthy.ttc")
   font_add(body_family,  "/System/Library/Fonts/Supplemental/Avenir Next.ttc")
 }
-font_add("playfair", "/Users/raycarpenter/Code/nfl-assets/lingua/fonts/PlayfairDisplay-VariableFont_wght.ttf")
+tryCatch(font_add_google("Playfair Display", "playfair"),
+         error = function(e) font_add("playfair", "/Library/Fonts/PlayfairDisplay-Regular.ttf"))
 showtext_auto(); showtext_opts(dpi = 300)
 
 con <- dbConnect(SQLite(), db)

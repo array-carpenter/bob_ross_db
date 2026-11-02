@@ -23,7 +23,8 @@ spade_fonts <- function() {
            error = function(e) font_add("newsreader",
              "/System/Library/Fonts/Supplemental/Times New Roman.ttf",
              bold = "/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf"))
-  font_add("playfair", "/Users/raycarpenter/Code/nfl-assets/lingua/fonts/PlayfairDisplay-VariableFont_wght.ttf")
+  tryCatch(font_add_google("Playfair Display", "playfair"),
+           error = function(e) font_add("playfair", "/Library/Fonts/PlayfairDisplay-Regular.ttf"))
   showtext_auto(); showtext_opts(dpi = 300)
 }
 

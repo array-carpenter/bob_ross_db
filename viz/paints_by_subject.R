@@ -9,7 +9,6 @@ suppressPackageStartupMessages({
 source("viz/_spade_brand.R")
 source("viz/_subjects.R")
 spade_fonts()
-font_add("playfair", "/Users/raycarpenter/Code/nfl-assets/lingua/fonts/PlayfairDisplay-VariableFont_wght.ttf")
 
 MORE <- "#01796F"
 LESS <- "#FF3B29"
