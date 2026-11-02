@@ -76,6 +76,8 @@ Each saves an `.rds` (gitignored) that the corresponding chart script reads.
 ## Charts
 
 Scripts in `viz/`, run from the repo root (`Rscript viz/color_pie.R`).
+`subjects_3d.R` and `paints_by_subject.R` use the FiveThirtyEight subject tags
+(grouped in `viz/_subjects.R`, so `tree`, `trees`, `conifer`, ... count as one "Trees").
 
 ![Every color Bob Ross used](viz/color_pie.png)
 ![31 seasons of color](viz/31_seasons_of_color.png)
@@ -83,6 +85,8 @@ Scripts in `viz/`, run from the repo root (`Rscript viz/color_pie.R`).
 ![The standard kit](viz/standard_kit.png)
 ![Bob's fifteen paints, ranked](viz/color_frequency_3d.png)
 ![Guessing snow from Bob's palette](viz/snow_from_palette.png)
+![What Bob Ross painted](viz/subjects_3d.png)
+![Paints Bob Ross used by subject](viz/paints_by_subject.png)
 
 ## Adding a season
 
